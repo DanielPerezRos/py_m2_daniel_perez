@@ -2,8 +2,18 @@ laptops = []  # Lista
 
 def create_laptop():
     laptop = dict()
-    laptop["id"] = int(input("Introduce el id "))
-    laptop["fabricante"] = input("Introduce el fabricante ")
+    laptop["id"] = int(input("Introduce el id: "))
+    for laptop in laptops:
+        if laptop["id"] is not None:
+            print("Ese id ya existe")
+            laptop["id"] = int(input("Introduce el id: "))
+
+    laptop["fabricante"] = input("Introduce el fabricante: ")
+    laptop["modelo"] = input("Introduce el modelo: ")
+    laptop["precio"] = int(input("Introduce el precio(€): "))
+    laptop["ram"] = int(input("Introduce la RAM(Gb): "))
+    laptop["peso"] = float(input("Introduce el peso(Kg.): "))
+
     laptops.append(laptop)
     print("Ordenador registrado")
 
@@ -24,12 +34,14 @@ while True:
     """)
     option = int(input("Selecciona una opción: "))
     if option == 1:
-        print(laptops)
+        if len(laptops) == 0:
+            print("No hay ordenadores disponibles")
+        else:
+            print(laptops)
     elif option == 2:
         if len(laptops) == 0:
             print("No hay ordenadores disponibles")
             continue
-
 
         id_laptop = int(input("introduce el id "))
 
