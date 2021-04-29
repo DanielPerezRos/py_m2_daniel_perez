@@ -1,13 +1,15 @@
 laptops = []  # Lista
+laptop_properties = ["id", "fabricante", "modelo", "precio", "ram", "peso"]
 
 def create_laptop():
     laptop = dict()
-    laptop["id"] = int(input("Introduce el id: "))
+    laptop["id"] = int(input("Introduce el id numérico: "))
+    """
     for laptop in laptops:
         if laptop["id"] is not None:
             print("Ese id ya existe")
             laptop["id"] = int(input("Introduce el id: "))
-
+    """
     laptop["fabricante"] = input("Introduce el fabricante: ")
     laptop["modelo"] = input("Introduce el modelo: ")
     laptop["precio"] = int(input("Introduce el precio(€): "))
@@ -21,6 +23,45 @@ def find_laptop(id_laptop):
     for laptop in laptops:
         if laptop["id"] == id_laptop:
             return laptop
+def edit_laptop():
+
+    product_index = int(input("Introduzca el índice del ordenador que desea editar de 1 a {}: ".format(len(laptops))))
+
+    property_edit = ''
+    while property_edit not in laptop_properties:
+        property_edit = str(input("Introduzca la propiedad que desea editar: "
+                                  "\"id\", "
+                                  "\"fabricante\", "
+                                  "\"modelo\", "
+                                  "\"precio\", "
+                                  "\"RAM\", "
+                                  "\"peso\": "))
+        if property_edit not in laptop_properties:
+            continue
+
+        if property_edit == "id":
+            laptops[product_index - 1]["id"] = int(
+                input("Introduzca el nuevo id del ordenador {}: ".format(product_index)))
+        elif property_edit == "fabricante":
+            laptops[product_index - 1]["fabricante"] = str(
+                input("Introduzca el nuevo fabricante del ordenador {}: ".format(product_index)))
+        elif property_edit == "modelo":
+            laptops[product_index - 1]["modelo"] = str(
+                input("Introduzca el nuevo modelo del ordenador {}: ".format(product_index)))
+        elif property_edit == "precio":
+            laptops[product_index - 1]["precio"] = int(
+                input("Introduzca el nuevo precio del ordenador {}: ".format(product_index)))
+        elif property_edit == "RAM":
+            laptops[product_index - 1]["RAM"] = int(
+                input("Introduzca la nueva RAM del ordenador {}: ".format(product_index)))
+        elif property_edit == "peso":
+            laptops[product_index - 1]["peso"] = float(
+                input("Introduzca el nuevo peso del ordenador {}: ".format(product_index)))
+
+        print("Ordenador {} modificado correctamente."
+              .format(laptops[product_index - 1]["fabricante"])
+              )
+
 
 while True:
     print("""
@@ -28,8 +69,8 @@ while True:
     1 - Consultar ordenadores
     2 - Consultar un ordenador
     3 - Crear un ordenador
-    4 - Editar
-    5 - borrar
+    4 - Editar un ordenador
+    5 - Borrar un ordenador
     6 - Salir
     """)
     option = int(input("Selecciona una opción: "))
@@ -55,7 +96,7 @@ while True:
     elif option == 3:
         create_laptop()
     elif option == 4:
-        print("Has elegido 4")
+        edit_laptop()
     elif option == 5:
         print("Has elegido 5")
     elif option == 6:
