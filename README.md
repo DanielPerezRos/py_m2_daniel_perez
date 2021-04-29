@@ -13,6 +13,7 @@
 
 6. – Salir: rompe el bucle y termina la aplicación.
 
-### Con un bucle se pide al usuario que introduzca una opción (por el número de opción) y en base a la  
-### opción se realiza una operación o se preguntan más datos para poder llevar a cabo la acción elegida. 
-### Se imprime en terminal los resultados de la acción solicitada.
+### Con un bucle se pide al usuario que introduzca una opción (por el número de opción)
+### y en base a la opción se realiza una operación o se preguntan más datos para poder 
+### llevar a cabo la acción elegida. Se imprime en terminal los resultados de la acción 
+### solicitada.
