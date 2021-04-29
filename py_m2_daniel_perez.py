@@ -62,7 +62,8 @@ def edit_laptop():
               .format(laptops[product_index - 1]["fabricante"])
               )
 
-
+def del_laptop(index_laptop):
+    pass
 while True:
     print("""
     Menú de opciones: 
@@ -98,7 +99,14 @@ while True:
     elif option == 4:
         edit_laptop()
     elif option == 5:
-        print("Has elegido 5")
+        index_laptop = int(input("introduce el índice del ordenador a borrar de 1 a {}: ".format(len(laptops))))
+        for laptop in laptops:
+            if laptops[index_laptop -1] is not None:
+                laptops.pop(index_laptop -1)
+                print("Ordenador borrado")
+            else:
+                print("El ordenador no existe")
+
     elif option == 6:
         break
 
