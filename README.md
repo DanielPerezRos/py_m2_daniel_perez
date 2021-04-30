@@ -3,7 +3,7 @@
 
 Pendiente control de excepciones:
 introducir un string cdo pide un int,  
-introducir un  id repetido,
+introducir un  id repetido, -> Ver código comentado
 introducir un índice fuera de rango ...
 
 1. – Consultar ordenadores: devuelve los ordenadores que tiene guardados en una estructura de datos.
