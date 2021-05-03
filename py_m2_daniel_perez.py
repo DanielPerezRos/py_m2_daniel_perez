@@ -103,8 +103,6 @@ while True:
             if laptop["id"] == id_laptop:
                 del (laptops[id_laptop - 1])
                 print("El ordenador ha sido eliminado")
-            else:
-                print("El ordenador no existe")
 
     elif option == 6:
         break
